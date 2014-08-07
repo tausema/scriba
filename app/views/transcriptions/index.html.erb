@@ -1,6 +1,23 @@
-<h1>Listing transcriptions</h1>
+<h1>Transcriptions</h1>
 
-<table>
+<div class="intro-box">
+<p>A moose is asleep. He is dreaming of moose drinks.
+A goose is asleep. He is dreaming of goose drinks.
+That’s well and good when a moose dreams of moose juice.
+And nothing goes wrong when a goose dreams of goose juice.
+But it isn’t too good when a moose and a goose
+Start dreaming they’re drinking the other one’s juice.
+Moose juice, not goose juice, is juice for a moose.
+And goose juice, not moose juice, is juice for a goose.
+So, when goose gets a mouthful of juices of mooses
+And moose gets a mouthful of juices of gooses
+They always fall out of their beds screaming screams
+So, I’m warning you, now! Never drink in your dreams.
+</p>
+
+</div>
+
+<!-- <table>
   <thead>
     <tr>
       <th>User name</th>
@@ -25,6 +42,41 @@
   </tbody>
 </table>
 
-<br>
+<br> -->
+
+
+
+<div class="row">
+  <h1>Transcriptions</h1>
+
+  <p>
+    <%= link_to 'New Transcription', new_transcription_path, :class => "btn btn-large btn-primary" %>
+  </p>
+</div>
+
+<% @transcriptions.in_groups_of(3) do |group| %>
+<div class="row">
+  <% group.compact.each do |transcription| %>
+    <div class="col-xs-6 col-md-4">
+      <div class="thumbnail">
+        <%= link_to(image_tag(transcription.picture_url(:thumb)), transcription_path(transcription)) if transcription.picture.present? %>
+        <div class="caption">
+          <h3><%= transcription.title %></h3>
+          <p><%= truncate(transcription.description, length: 250) %></p>
+          <p>
+            <%= link_to 'Edit', edit_transcription_path(transcription), :class => "btn btn-mini btn-primary" %>
+            <%= link_to 'Destroy', transcription, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-mini btn-danger" %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<% end %>
+
 
 <%= link_to 'New Transcription', new_transcription_path %>
+
+
+
+
