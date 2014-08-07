@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807141414) do
+ActiveRecord::Schema.define(version: 20140807154438) do
 
   create_table "transcriptions", force: true do |t|
     t.string   "user_name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140807141414) do
     t.text     "transcription"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
 end
