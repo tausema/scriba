@@ -32,6 +32,8 @@ gem 'mini_magick', '~> 3.7.0'
 
 gem 'devise', '~> 3.2.4'
 
+gem 'gravtastic', '~> 3.2.6'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
